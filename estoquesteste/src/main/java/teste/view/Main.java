@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) {
         JFrame frame = new JFrame("Sistema de Estoque e Vendas");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(800, 600);
+        frame.setSize(600, 400);
 
         // Cria a barra de menu
         JMenuBar menuBar = new JMenuBar();
