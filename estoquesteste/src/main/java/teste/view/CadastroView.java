@@ -2,7 +2,10 @@ package teste.view;
 
 import javax.swing.*;
 import java.awt.*;
+import teste.controller.CadastroController;
 import teste.service.EmpresaService;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import teste.model.Empresa;
 import java.util.Date;
 
@@ -17,10 +20,10 @@ public class CadastroView {
     private JTextField contatoField;
     private JTextField enderecoField;
     private JButton cadastrarButton;
-    private EmpresaService empresaService;
+    private CadastroController cadastroController;
 
     public CadastroView(){
-        empresaService = new EmpresaService();
+        cadastroController = new CadastroController();
         panel = new JPanel(new GridLayout(10, 2));
         
         razaoSocialField = new JTextField();
@@ -70,11 +73,12 @@ public class CadastroView {
         empresa.setEnderecoCompleto(enderecoField.getText());
         empresa.setDataCadastro(new Date());
 
-        boolean sucesso = empresaService.adicionarEmpresa(empresa);
+        boolean sucesso = cadastroController.adicionarEmpresa(empresa);
         if (sucesso) {
             JOptionPane.showMessageDialog(panel, "Empresa cadastrada com sucesso!");
         } else {
             JOptionPane.showMessageDialog(panel, "Empresa com este CNPJ já está cadastrada.");
         }
+
     }
 }

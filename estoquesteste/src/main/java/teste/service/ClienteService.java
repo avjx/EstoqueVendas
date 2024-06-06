@@ -16,4 +16,8 @@ public class ClienteService {
         clientes.add(cliente);
         return true;
     }
+
+    public List<Cliente> listarClientes(){
+        return clientes;
+    }
 }

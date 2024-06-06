@@ -2,11 +2,11 @@ package teste.view;
 
 import javax.swing.*;
 import java.awt.*;
+import teste.controller.ClienteController;
+import teste.model.Cliente;
+import teste.service.ClienteService;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-
-import teste.service.ClienteService;
-import teste.model.Cliente;
 import java.util.Date;
 
 public class ClienteView {
@@ -19,10 +19,10 @@ public class ClienteView {
     private JTextField celularField;
     private JTextField enderecoField;
     private JButton cadastrarButton;
-    private ClienteService clienteService;
+    private ClienteController clienteController;
 
     public ClienteView(){
-        clienteService = new ClienteService();
+        clienteController = new ClienteController();
         panel = new JPanel(new GridLayout(9, 2));
         
         nomeField = new JTextField();
@@ -75,9 +75,9 @@ public class ClienteView {
         cliente.setEnderecoCompleto(enderecoField.getText());
         cliente.setDataCadastro(new Date());
 
-        boolean sucesso = clienteService.adicionarCliente(cliente);
+        boolean sucesso = clienteController.adicionarCliente(cliente);
         if(sucesso){
-            JOptionPane.showMessageDialog(panel, "Cliente Cadastrado!");
+            JOptionPane.showMessageDialog(panel, "Cadastro realizado com sucesso!");
         }else{
             JOptionPane.showMessageDialog(panel, "Já existe um cadastro com este CPF!");
         }

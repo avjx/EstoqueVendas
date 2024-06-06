@@ -87,5 +87,4 @@ public class Empresa {
         this.enderecoCompleto = enderecoCompleto;
     }
 
-    //COnstrutores
 }

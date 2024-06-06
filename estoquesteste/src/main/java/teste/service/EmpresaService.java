@@ -17,5 +17,7 @@ public class EmpresaService {
         return true;
     }
 
-    // Outros métodos de serviço
+    public List<Empresa> listarEmpresas(){
+        return empresas;
+    }
 }
