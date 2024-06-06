@@ -7,14 +7,15 @@ public class Produto {
     private String codigoProduto;
     private double valor;
     private double valorPromocional;
-    private Date dataInicioPromocao;
-    private Date dataFimPromocao;
+    private Date dataInicialPromocao;
+    private Date dataFinalPromocao;
     private Date dataCadastro;
     private boolean status;
 
+    // Getters and Setters
 
     public String getDescricao() {
-        return this.descricao;
+        return descricao;
     }
 
     public void setDescricao(String descricao) {
@@ -22,7 +23,7 @@ public class Produto {
     }
 
     public String getCodigoProduto() {
-        return this.codigoProduto;
+        return codigoProduto;
     }
 
     public void setCodigoProduto(String codigoProduto) {
@@ -30,7 +31,7 @@ public class Produto {
     }
 
     public double getValor() {
-        return this.valor;
+        return valor;
     }
 
     public void setValor(double valor) {
@@ -38,43 +39,39 @@ public class Produto {
     }
 
     public double getValorPromocional() {
-        return this.valorPromocional;
+        return valorPromocional;
     }
 
     public void setValorPromocional(double valorPromocional) {
         this.valorPromocional = valorPromocional;
     }
 
-    public Date getDataInicioPromocao() {
-        return this.dataInicioPromocao;
+    public Date getDataInicialPromocao() {
+        return dataInicialPromocao;
     }
 
-    public void setDataInicioPromocao(Date dataInicioPromocao) {
-        this.dataInicioPromocao = dataInicioPromocao;
+    public void setDataInicialPromocao(Date dataInicialPromocao) {
+        this.dataInicialPromocao = dataInicialPromocao;
     }
 
-    public Date getDataFimPromocao() {
-        return this.dataFimPromocao;
+    public Date getDataFinalPromocao() {
+        return dataFinalPromocao;
     }
 
-    public void setDataFimPromocao(Date dataFimPromocao) {
-        this.dataFimPromocao = dataFimPromocao;
+    public void setDataFinalPromocao(Date dataFinalPromocao) {
+        this.dataFinalPromocao = dataFinalPromocao;
     }
 
     public Date getDataCadastro() {
-        return this.dataCadastro;
+        return dataCadastro;
     }
 
     public void setDataCadastro(Date dataCadastro) {
         this.dataCadastro = dataCadastro;
     }
 
-    public boolean isStatus() {
-        return this.status;
-    }
-
     public boolean getStatus() {
-        return this.status;
+        return status;
     }
 
     public void setStatus(boolean status) {
