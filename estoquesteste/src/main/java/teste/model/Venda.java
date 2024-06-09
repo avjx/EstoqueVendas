@@ -1,37 +1,22 @@
 package teste.model;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class Venda {
-    private Date dataVenda;
     private List<ItemVenda> itens;
     private double valorPago;
-    private double troco;
-    private double totalSemDesconto;
-    private double totalComDesconto;
     private double desconto;
+    private double total;
+    private double totalComDesconto;
+    private double troco;
 
     public Venda() {
-        this.itens = new ArrayList<>();
-    }
-    
-
-    public Date getDataVenda() {
-        return dataVenda;
-    }
-
-    public void setDataVenda(Date dataVenda) {
-        this.dataVenda = dataVenda;
+        itens = new ArrayList<>();
     }
 
     public List<ItemVenda> getItens() {
         return itens;
-    }
-
-    public void setItens(List<ItemVenda> itens) {
-        this.itens = itens;
     }
 
     public double getValorPago() {
@@ -42,20 +27,20 @@ public class Venda {
         this.valorPago = valorPago;
     }
 
-    public double getTroco() {
-        return troco;
+    public double getDesconto() {
+        return desconto;
     }
 
-    public void setTroco(double troco) {
-        this.troco = troco;
+    public void setDesconto(double desconto) {
+        this.desconto = desconto;
     }
 
-    public double getTotalSemDesconto() {
-        return totalSemDesconto;
+    public double getTotal() {
+        return total;
     }
 
-    public void setTotalSemDesconto(double totalSemDesconto) {
-        this.totalSemDesconto = totalSemDesconto;
+    public void setTotal(double total) {
+        this.total = total;
     }
 
     public double getTotalComDesconto() {
@@ -66,11 +51,11 @@ public class Venda {
         this.totalComDesconto = totalComDesconto;
     }
 
-    public double getDesconto() {
-        return desconto;
+    public double getTroco() {
+        return troco;
     }
 
-    public void setDesconto(double desconto) {
-        this.desconto = desconto;
+    public void setTroco(double troco) {
+        this.troco = troco;
     }
 }

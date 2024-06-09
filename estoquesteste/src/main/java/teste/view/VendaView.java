@@ -4,7 +4,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import teste.controller.VendaController;
 import teste.controller.ProdutoController;
 import teste.model.Venda;
@@ -19,7 +18,9 @@ public class VendaView {
     private JTextField txtDesconto;
     private JTextArea areaProdutos;
     private JButton btnAdicionarProduto;
-    private JButton btnRegistrarVenda;
+    private JButton btnCalcularTroco;
+    private JButton btnPagamentoEfetuado;
+    private JButton btnPagamentoCancelado;
     private JLabel lblTotal;
     private JLabel lblTroco;
     private VendaController vendaController;
@@ -31,7 +32,7 @@ public class VendaView {
         produtoController = new ProdutoController();
         venda = new Venda();
 
-        panel = new JPanel(new GridLayout(10, 2));
+        panel = new JPanel(new GridLayout(11, 2));
 
         txtCodigoProduto = new JTextField();
         txtQuantidade = new JTextField();
@@ -39,7 +40,9 @@ public class VendaView {
         txtDesconto = new JTextField();
         areaProdutos = new JTextArea(5, 20);
         btnAdicionarProduto = new JButton("Adicionar Produto");
-        btnRegistrarVenda = new JButton("Registrar Venda");
+        btnCalcularTroco = new JButton("Calcular Troco");
+        btnPagamentoEfetuado = new JButton("Pagamento Efetuado");
+        btnPagamentoCancelado = new JButton("Pagamento Cancelado");
         lblTotal = new JLabel("Total: ");
         lblTroco = new JLabel("Troco: ");
 
@@ -56,7 +59,9 @@ public class VendaView {
         panel.add(new JScrollPane(areaProdutos));
         panel.add(lblTotal);
         panel.add(lblTroco);
-        panel.add(btnRegistrarVenda);
+        panel.add(btnCalcularTroco);
+        panel.add(btnPagamentoEfetuado);
+        panel.add(btnPagamentoCancelado);
 
         btnAdicionarProduto.addActionListener(new ActionListener() {
             @Override
@@ -65,10 +70,24 @@ public class VendaView {
             }
         });
 
-        btnRegistrarVenda.addActionListener(new ActionListener() {
+        btnCalcularTroco.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                calcularTroco();
+            }
+        });
+
+        btnPagamentoEfetuado.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 registrarVenda();
+            }
+        });
+
+        btnPagamentoCancelado.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cancelarVenda();
             }
         });
     }
@@ -87,7 +106,7 @@ public class VendaView {
         }
     }
 
-    private void registrarVenda() {
+    private void calcularTroco() {
         double valorPago = Double.parseDouble(txtValorPago.getText());
         double desconto = Double.parseDouble(txtDesconto.getText());
 
@@ -97,13 +116,33 @@ public class VendaView {
         vendaController.calcularTotais(venda);
         vendaController.calcularTroco(venda);
 
+        lblTotal.setText("Total: " + venda.getTotalComDesconto());
+        lblTroco.setText("Troco: " + venda.getTroco());
+    }
+
+    private void registrarVenda() {
         if (vendaController.registrarVenda(venda)) {
-            lblTotal.setText("Total: " + venda.getTotalComDesconto());
-            lblTroco.setText("Troco: " + venda.getTroco());
             JOptionPane.showMessageDialog(null, "Venda registrada com sucesso!");
+            limparTela();
         } else {
             JOptionPane.showMessageDialog(null, "Erro ao registrar a venda. Verifique o estoque.");
         }
+    }
+
+    private void cancelarVenda() {
+        JOptionPane.showMessageDialog(null, "Venda cancelada.");
+        limparTela();
+    }
+
+    private void limparTela() {
+        txtCodigoProduto.setText("");
+        txtQuantidade.setText("");
+        txtValorPago.setText("");
+        txtDesconto.setText("");
+        areaProdutos.setText("");
+        lblTotal.setText("Total: ");
+        lblTroco.setText("Troco: ");
+        venda = new Venda();
     }
 
     public JPanel getPanel() {

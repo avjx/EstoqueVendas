@@ -1,42 +1,37 @@
 package teste.controller;
 
-import java.util.List;
 import teste.model.Venda;
-import teste.service.VendaService;
-import teste.model.Produto;
 import teste.model.ItemVenda;
-import java.util.ArrayList;
+import teste.service.VendaService;
+import teste.service.EstoqueService;
 
 public class VendaController {
     private VendaService vendaService;
+    private EstoqueService estoqueService;
 
     public VendaController() {
-        this.vendaService = new VendaService();
+        vendaService = new VendaService();
+        estoqueService = EstoqueService.getInstance();
     }
 
     public boolean registrarVenda(Venda venda) {
-        calcularTotais(venda);
-        calcularTroco(venda);
-        return vendaService.registrarVenda(venda);
-    }
-
-    public List<Venda> listarVendas() {
-        return vendaService.listarVendas();
+        boolean vendaRegistrada = vendaService.registrarVenda(venda);
+        if (vendaRegistrada) {
+            for (ItemVenda item : venda.getItens()) {
+                estoqueService.atualizarQuantidadeVendida(item.getProduto().getCodigoProduto(), item.getQuantidade());
+            }
+        }
+        return vendaRegistrada;
     }
 
     public void calcularTotais(Venda venda) {
-        double totalSemDesconto = 0.0;
-        double totalComDesconto = 0.0;
-
+        double total = 0.0;
         for (ItemVenda item : venda.getItens()) {
-            Produto produto = item.getProduto();
-            int quantidade = item.getQuantidade();
-            totalSemDesconto += produto.getValor() * quantidade;
-            totalComDesconto += produto.getValorPromocional() * quantidade;
+            total += item.getProduto().getValor() * item.getQuantidade();
         }
-
-        venda.setTotalSemDesconto(totalSemDesconto);
-        venda.setTotalComDesconto(totalComDesconto - (totalComDesconto * venda.getDesconto() / 100));
+        double desconto = total * (venda.getDesconto() / 100);
+        venda.setTotal(total);
+        venda.setTotalComDesconto(total - desconto);
     }
 
     public void calcularTroco(Venda venda) {

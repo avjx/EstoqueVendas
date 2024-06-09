@@ -35,6 +35,7 @@ public class EstoqueView {
         StringBuilder sb = new StringBuilder();
         for (Estoque e : estoques) {
             sb.append("Produto: ").append(e.getProduto().getDescricao()).append("\n")
+              .append("Codigo: ").append(e.getProduto().getCodigoProduto()).append("\n")
               .append("Valor: ").append(e.getValorProduto()).append("\n")
               .append("Data Cadastro: ").append(e.getDataCadastro()).append("\n")
               .append("Quantidade Vendida: ").append(e.getQuantidadeVendida()).append("\n")
