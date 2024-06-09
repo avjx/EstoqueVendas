@@ -4,7 +4,6 @@ import javax.swing.*;
 import java.awt.*;
 import teste.controller.ClienteController;
 import teste.model.Cliente;
-import teste.service.ClienteService;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -38,7 +37,7 @@ public class ClienteView {
         panel.add(nomeField);
         panel.add(new JLabel("CPF:"));
         panel.add(cpfField);
-        panel.add(new JLabel("Data de Nascimento (dd/mm/yyyy):"));
+        panel.add(new JLabel("Data de Nascimento (dd/MM/yyyy):"));
         panel.add(dataNascimentoField);
         panel.add(new JLabel("E-mail:"));
         panel.add(emailField);
@@ -62,10 +61,10 @@ public class ClienteView {
         cliente.setNome(nomeField.getText());
         cliente.setCpf(cpfField.getText());
         
-        try{
+        try {
             cliente.setDataNascimento(new SimpleDateFormat("dd/MM/yyyy").parse(dataNascimentoField.getText()));
-        }catch(ParseException e){
-            JOptionPane.showMessageDialog(panel, "Formato inválido.");
+        } catch (ParseException e) {
+            JOptionPane.showMessageDialog(panel, "Formato de data inválido.");
             return;
         }
 
@@ -76,9 +75,9 @@ public class ClienteView {
         cliente.setDataCadastro(new Date());
 
         boolean sucesso = clienteController.adicionarCliente(cliente);
-        if(sucesso){
+        if (sucesso) {
             JOptionPane.showMessageDialog(panel, "Cadastro realizado com sucesso!");
-        }else{
+        } else {
             JOptionPane.showMessageDialog(panel, "Já existe um cadastro com este CPF!");
         }
     }

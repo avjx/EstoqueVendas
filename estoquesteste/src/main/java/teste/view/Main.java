@@ -6,6 +6,7 @@ import javax.swing.*;
 import teste.controller.ProdutoController;
 import teste.model.Estoque;
 import teste.model.Produto;
+import teste.model.Venda;
 
 import java.awt.*;
 
@@ -21,11 +22,13 @@ public class Main {
         JMenuItem clienteMenuItem = new JMenuItem("Cadastro de Cliente");
         JMenuItem produtoMenuItem = new JMenuItem("Cadastro de Produto");
         JMenuItem estoqueMenuItem = new JMenuItem("Controle de Estoque");
+        JMenuItem vendaMenuItem = new JMenuItem("Cadastro de Venda");
 
         cadastroMenu.add(empresaMenuItem);
         cadastroMenu.add(clienteMenuItem);
         cadastroMenu.add(produtoMenuItem);
         cadastroMenu.add(estoqueMenuItem);
+        cadastroMenu.add(vendaMenuItem);
         menuBar.add(cadastroMenu);
         frame.setJMenuBar(menuBar);
 
@@ -36,16 +39,19 @@ public class Main {
         ClienteView clienteView = new ClienteView();
         ProdutoView produtoView = new ProdutoView();
         EstoqueView estoqueView = new EstoqueView();
+        VendaView vendaView = new VendaView();
 
         mainPanel.add(cadastroView.getPanel(), "CadastroEmpresa");
         mainPanel.add(clienteView.getPanel(), "CadastroCliente");
         mainPanel.add(produtoView.getPanel(), "CadastroProduto");
         mainPanel.add(estoqueView.getPanel(), "ControleEstoque");
+        mainPanel.add(vendaView.getPanel(), "CadastroVenda");
 
         empresaMenuItem.addActionListener(e -> cardLayout.show(mainPanel, "CadastroEmpresa"));
         clienteMenuItem.addActionListener(e -> cardLayout.show(mainPanel, "CadastroCliente"));
         produtoMenuItem.addActionListener(e -> cardLayout.show(mainPanel, "CadastroProduto"));
         estoqueMenuItem.addActionListener(e -> cardLayout.show(mainPanel, "ControleEstoque"));
+        vendaMenuItem.addActionListener(e -> cardLayout.show(mainPanel, "CadastroVenda"));
 
         frame.add(mainPanel);
         frame.setVisible(true);

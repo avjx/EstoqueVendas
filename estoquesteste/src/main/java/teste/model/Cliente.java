@@ -12,6 +12,8 @@ public class Cliente {
     private String celular;
     private String enderecoCompleto;
 
+    //att junto com venda
+    public Cliente(){}
 
     public String getNome() {
         return this.nome;

@@ -8,6 +8,23 @@ public class ClienteController {
     private ClienteService clienteService;
 
     public ClienteController() {
+        clienteService = ClienteService.getInstance();
+    }
+
+    public List<Cliente> getClientes() {
+        return clienteService.getClientes();
+    }
+
+    public boolean adicionarCliente(Cliente cliente) {
+        return clienteService.adicionarCliente(cliente);
+    }
+}
+
+/*
+public class ClienteController {
+    private ClienteService clienteService;
+
+    public ClienteController() {
         this.clienteService = new ClienteService();
     }
 
@@ -19,3 +36,4 @@ public class ClienteController {
         return clienteService.listarClientes();
     }
 }
+*/

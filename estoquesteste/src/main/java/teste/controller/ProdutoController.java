@@ -18,6 +18,10 @@ public class ProdutoController {
     public java.util.List<Produto> listarProdutos() {
         return produtoService.listarProdutos();
     }
+
+    public Produto buscarProdutoPorCodigo(String codigoProduto){
+        return produtoService.buscarProdutoPorCodigo(codigoProduto);
+    }
 }
 
 /*

@@ -12,7 +12,9 @@ public class Produto {
     private Date dataCadastro;
     private boolean status;
 
-    // Getters and Setters
+    //att junto com venda
+    public Produto(){}
+
 
     public String getDescricao() {
         return descricao;

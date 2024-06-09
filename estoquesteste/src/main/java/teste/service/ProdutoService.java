@@ -45,4 +45,13 @@ public class ProdutoService {
     public List<Produto> listarProdutos() {
         return produtos;
     }
+
+    public Produto buscarProdutoPorCodigo(String codigoProduto) {
+        for (Produto produto : produtos) {
+            if (produto.getCodigoProduto().equals(codigoProduto)) {
+                return produto;
+            }
+        }
+        return null; // Produto não encontrado
+    }
 }
