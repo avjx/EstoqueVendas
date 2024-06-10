@@ -3,8 +3,11 @@ package teste.service;
 import java.util.ArrayList;
 import java.util.List;
 import teste.model.Cliente;
+import teste.model.Produto;
+import teste.model.Venda;
 
 public class ClienteService {
+    private List<Venda> vendas = new ArrayList<>();
     private static ClienteService instance;
     private List<Cliente> clientes;
 
@@ -37,6 +40,15 @@ public class ClienteService {
         }
         clientes.add(cliente);
         return true;
+    }
+
+    public Cliente buscarClientePorCpfCnpj(String cpfCnpj) {
+        for (Cliente cliente : clientes) {
+            if (cliente.getCpf().equals(cpfCnpj)) {
+                return cliente;
+            }
+        }
+        return null;
     }
 
     public List<Cliente> getClientes() {

@@ -18,6 +18,10 @@ public class ClienteController {
     public boolean adicionarCliente(Cliente cliente) {
         return clienteService.adicionarCliente(cliente);
     }
+
+    public Cliente buscarClientePorCpfCnpj(String cpfCnpj) {
+        return clienteService.buscarClientePorCpfCnpj(cpfCnpj);
+    }
 }
 
 /*

@@ -10,6 +10,8 @@ public class Venda {
     private double total;
     private double totalComDesconto;
     private double troco;
+    private String cpfCnpjCliente;
+    private Cliente cliente;
 
     public Venda() {
         itens = new ArrayList<>();
@@ -57,5 +59,17 @@ public class Venda {
 
     public void setTroco(double troco) {
         this.troco = troco;
+    }
+
+    public String getCpfCnpjCliente() {
+        return cpfCnpjCliente;
+    }
+
+    public void setCpfCnpjCliente(String cpfCnpjCliente) {
+        this.cpfCnpjCliente = cpfCnpjCliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 }

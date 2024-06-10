@@ -2,6 +2,8 @@ package teste.service;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import teste.model.Cliente;
 import teste.model.Empresa;
 
 
@@ -38,6 +40,15 @@ public class EmpresaService {
         }
         empresas.add(empresa);
         return true;
+    }
+
+    public Empresa buscarClientePorCpfCnpj(String cpfCnpj) {
+        for (Empresa empresa : empresas) {
+            if (empresa.getCnpj().equals(cpfCnpj)) {
+                return empresa;
+            }
+        }
+        return null;
     }
 
     public List<Empresa> getEmpresas() {

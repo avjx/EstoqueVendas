@@ -6,9 +6,9 @@ public class Produto {
     private String descricao;
     private String codigoProduto;
     private double valor;
-    private double valorPromocional;
-    private Date dataInicialPromocao;
-    private Date dataFinalPromocao;
+    // private double valorPromocional;
+    // private Date dataInicialPromocao;
+    // private Date dataFinalPromocao;
     private Date dataCadastro;
     private boolean status;
 
@@ -40,29 +40,29 @@ public class Produto {
         this.valor = valor;
     }
 
-    public double getValorPromocional() {
-        return valorPromocional;
-    }
+    // public double getValorPromocional() {
+    //     return valorPromocional;
+    // }
 
-    public void setValorPromocional(double valorPromocional) {
-        this.valorPromocional = valorPromocional;
-    }
+    // public void setValorPromocional(double valorPromocional) {
+    //     this.valorPromocional = valorPromocional;
+    // }
 
-    public Date getDataInicialPromocao() {
-        return dataInicialPromocao;
-    }
+    // public Date getDataInicialPromocao() {
+    //     return dataInicialPromocao;
+    // }
 
-    public void setDataInicialPromocao(Date dataInicialPromocao) {
-        this.dataInicialPromocao = dataInicialPromocao;
-    }
+    // public void setDataInicialPromocao(Date dataInicialPromocao) {
+    //     this.dataInicialPromocao = dataInicialPromocao;
+    // }
 
-    public Date getDataFinalPromocao() {
-        return dataFinalPromocao;
-    }
+    // public Date getDataFinalPromocao() {
+    //     return dataFinalPromocao;
+    // }
 
-    public void setDataFinalPromocao(Date dataFinalPromocao) {
-        this.dataFinalPromocao = dataFinalPromocao;
-    }
+    // public void setDataFinalPromocao(Date dataFinalPromocao) {
+    //     this.dataFinalPromocao = dataFinalPromocao;
+    // }
 
     public Date getDataCadastro() {
         return dataCadastro;

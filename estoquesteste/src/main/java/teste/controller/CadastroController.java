@@ -1,5 +1,6 @@
 package teste.controller;
 
+import teste.model.Cliente;
 import teste.model.Empresa;
 import teste.service.EmpresaService;
 import java.util.List;
@@ -17,6 +18,10 @@ public class CadastroController {
 
     public List<Empresa> getEmpresas() {
         return empresaService.getEmpresas();
+    }
+
+    public Empresa buscarEmpresaPorCnpj(String cpfCnpj) {
+        return empresaService.buscarClientePorCpfCnpj(cpfCnpj);
     }
 }
 

@@ -34,8 +34,15 @@ public class EstoqueService {
     public boolean atualizarQuantidadeVendida(String codigoProduto, int quantidadeVendida) {
         for (Estoque e : estoques) {
             if (e.getProduto().getCodigoProduto().equals(codigoProduto)) {
+                System.out.println("Atualizando produto: "+e.getProduto().getDescricao()+
+                                   " | Qtd atual: "+ e.getQuantidadeEmEstoque()+
+                                   " | Qtd vendida: "+ e.getQuantidadeVendida());
+                System.out.println("Qtd a atualizar: "+quantidadeVendida);
+
                 e.setQuantidadeVendida(e.getQuantidadeVendida() + quantidadeVendida);
                 e.setQuantidadeEmEstoque(e.getQuantidadeEmEstoque() - quantidadeVendida);
+                System.out.println("Qtd atualizada: "+e.getQuantidadeEmEstoque()+
+                                   " | Qtd vendida: "+e.getQuantidadeVendida());
                 return true;
             }
         }

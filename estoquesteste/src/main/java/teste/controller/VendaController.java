@@ -1,13 +1,16 @@
 package teste.controller;
 
 import teste.model.Venda;
+import teste.model.Cliente;
 import teste.model.ItemVenda;
 import teste.service.VendaService;
 import teste.service.EstoqueService;
+import teste.service.ClienteService;
 
 public class VendaController {
     private VendaService vendaService;
     private EstoqueService estoqueService;
+    private ClienteService clienteService;
 
     public VendaController() {
         vendaService = new VendaService();
@@ -17,9 +20,9 @@ public class VendaController {
     public boolean registrarVenda(Venda venda) {
         boolean vendaRegistrada = vendaService.registrarVenda(venda);
         if (vendaRegistrada) {
-            for (ItemVenda item : venda.getItens()) {
-                estoqueService.atualizarQuantidadeVendida(item.getProduto().getCodigoProduto(), item.getQuantidade());
-            }
+            // for (ItemVenda item : venda.getItens()) {
+            //     estoqueService.atualizarQuantidadeVendida(item.getProduto().getCodigoProduto(), item.getQuantidade());
+            // }
         }
         return vendaRegistrada;
     }

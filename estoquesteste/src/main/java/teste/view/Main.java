@@ -4,11 +4,7 @@ import java.awt.CardLayout;
 import javax.swing.*;
 
 import teste.controller.ProdutoController;
-import teste.model.Estoque;
 import teste.model.Produto;
-import teste.model.Venda;
-
-import java.awt.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -62,45 +58,13 @@ public class Main {
         produto.setDescricao("Produto de Teste");
         produto.setCodigoProduto("001");
         produto.setValor(100.0);
-        produto.setValorPromocional(90.0);
+        //produto.setValorPromocional(90.0);
         produto.setDataCadastro(new java.util.Date());
-        produto.setDataInicialPromocao(new java.util.Date());
-        produto.setDataFinalPromocao(new java.util.Date());
+        //produto.setDataInicialPromocao(new java.util.Date());
+        //produto.setDataFinalPromocao(new java.util.Date());
         produto.setStatus(true);
         
         boolean adicionado = produtoController.adicionarProduto(produto, 50); // Adicionando 50 unidades no estoque
         System.out.println("Produto adicionado: " + adicionado);
     }
 }
-
-/*
-public class Main {
-    public static void main(String[] args) {
-        JFrame frame = new JFrame("Estoque e Vendas");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(800, 600);
-        
-        JMenuBar menuBar = new JMenuBar();
-        JMenu cadastroMenu = new JMenu("Cadastros");
-        JMenuItem empresaMenuItem = new JMenuItem("Cadastro Empresa");
-        JMenuItem clienteMenuItem = new JMenuItem("Cadastro Cliente");
-
-        cadastroMenu.add(empresaMenuItem);
-        cadastroMenu.add(clienteMenuItem);
-        menuBar.add(cadastroMenu);
-        frame.setJMenuBar(menuBar);
-
-        CardLayout cardLayout = new CardLayout();
-        JPanel mainPanel = new JPanel(cardLayout);
-
-        CadastroView cadastroView = new CadastroView();
-        ClienteView clienteView = new ClienteView();
-
-        mainPanel.add(cadastroView.getPanel(), "CadastroEmpresa");
-        mainPanel.add(clienteView.getPanel(), "CadastroCliente");
-
-        frame.add(mainPanel);
-        frame.setVisible(true);
-    }
-}
-*/
