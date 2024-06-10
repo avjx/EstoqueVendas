@@ -55,22 +55,3 @@ public class EmpresaService {
         return new ArrayList<>(empresas);
     }
 }
-
-/*
-public class EmpresaService {
-    private List<Empresa> empresas = new ArrayList<>();
-
-    public boolean adicionarEmpresa(Empresa empresa) {
-        for (Empresa e : empresas) {
-            if (e.getCnpj().equals(empresa.getCnpj())) {
-                return false; // Empresa existente
-            }
-        }
-        empresas.add(empresa);
-        return true;
-    }
-
-    public List<Empresa> listarEmpresas(){
-        return empresas;
-    }
-}*/

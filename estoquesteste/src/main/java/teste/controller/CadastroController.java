@@ -24,24 +24,3 @@ public class CadastroController {
         return empresaService.buscarClientePorCpfCnpj(cpfCnpj);
     }
 }
-
-/*
-public class CadastroController {
-    private EmpresaService empresaService;
-
-    public CadastroController() {
-        this.empresaService = new EmpresaService();
-    }
-
-    public boolean adicionarEmpresa(Empresa empresa) {
-        return empresaService.adicionarEmpresa(empresa);
-    }
-
-    public List<Empresa> listarEmpresas() {
-        return empresaService.listarEmpresas();
-    }
-
-    public List<Empresa> getEmpresas() {
-        return empresaService.getEmpresas();
-    }
-}*/

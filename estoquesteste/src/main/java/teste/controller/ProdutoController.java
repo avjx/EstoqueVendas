@@ -23,21 +23,3 @@ public class ProdutoController {
         return produtoService.buscarProdutoPorCodigo(codigoProduto);
     }
 }
-
-/*
-public class ProdutoController {
-    private ProdutoService produtoService;
-
-    public ProdutoController() {
-        this.produtoService = new ProdutoService();
-    }
-
-    public boolean adicionarProduto(Produto produto, int quantidadeInicial) {
-        return produtoService.adicionarProduto(produto, quantidadeInicial);
-    }
-
-    public List<Produto> listarProdutos() {
-        return produtoService.listarProdutos();
-    }
-}
-*/
